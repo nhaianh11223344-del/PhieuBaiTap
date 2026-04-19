@@ -180,3 +180,17 @@ Câu C1
 </footer>
 </body>
 </html>
+
+Phần B3 — Debug HTML
+   +Lỗi 1: Dòng 1 — <!DOCTYPE> sai chuẩn — sửa thành <!DOCTYPE html>
+   +Lỗi 2: Dòng 4 — Thiếu thẻ đóng </title> — thêm </title>
+   +Lỗi 3: Dòng 5 — charset="utf8" sai — sửa thành charset="utf-8"
+   +Lỗi 4: Dòng 8 — Thẻ <h1> không đóng — sửa thành <h1>...</h1>
+   +Lỗi 5: Dòng 12 — Thẻ <a> không đóng — thêm </a>
+   +Lỗi 6: Dòng 13 — Link href="products" không chuẩn — nên dùng href="#"
+   +Lỗi 7: Dòng 18 — <img src=iphone.jpg> thiếu dấu "" — sửa thành src="iphone.jpg"
+   +Lỗi 8: Dòng 20 — Thẻ <b> đóng sai vị trí — sửa thành <strong>25.990.000đ</strong>
+   +Lỗi 9: Dòng 26 — Table không có <thead> và <tbody> — thêm cấu trúc chuẩn
+   +Lỗi 10: Dòng 34 — Có 2 thẻ <main> — thay thẻ thứ 2 bằng <aside>
+   +Lỗi 11: Dòng 38 — Thẻ <p> trong footer chưa đóng — thêm </p>
+   +Lỗi 12: Thiếu thuộc tính alt cho img — thêm alt="..."
