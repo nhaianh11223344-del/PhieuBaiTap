@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>VD2 — Form hoàn chỉnh (Core Technical Truth)</title>
+</head>
+<body>
+    <h1>Ví dụ 2: Form hoàn chỉnh — Validation + Accessibility</h1>
+
+    <form action="/api/register" method="POST">
+
+        <p>
+            <label for="f1">1. Text required, để trống:</label><br>
+            <input type="text" id="f1" name="f1" required value="">
+        </p>
+
+        <p>
+            <label for="f2">2. Email nhập "abc":</label><br>
+            <input type="email" id="f2" name="f2" value="abc">
+        </p>
+
+        <p>
+            <label for="f3">3. Number min=1 max=10 nhập 15:</label><br>
+            <input type="number" id="f3" name="f3" min="1" max="10" value="15">
+        </p>
+
+        <p>
+            <label for="f4">4. Pattern [0-9]{10} nhập "abc123":</label><br>
+            <input type="text" id="f4" name="f4" pattern="[0-9]{10}" value="abc123" title="Phải đúng 10 chữ số">
+        </p>
+
+        <p>
+            <label for="f5">5. Password minlength=8 nhập "123":</label><br>
+            <input type="password" id="f5" name="f5" minlength="8" value="123">
+        </p>
+
+        <label>
+            <input type="checkbox" name="agree" required>
+            Tôi đồng ý với <a href="#" target="_blank" rel="noopener">Điều khoản sử dụng</a>
+        </label>
+
+        <button type="submit">Đăng ký</button>
+        <button type="reset">Xóa</button>
+    </form>
+</body>
+</html>
