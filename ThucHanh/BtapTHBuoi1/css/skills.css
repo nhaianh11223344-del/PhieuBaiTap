@@ -1,0 +1,64 @@
+/* Skills Section Styling */
+
+.skills-section {
+    padding: 5rem 0;
+}
+
+.skills-section h2 {
+    margin: 0 0 1rem;
+    color: var(--color-dark);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.skill-item {
+    padding: 1.25rem 1.25rem 1.4rem;
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.skill-name {
+    font-weight: 700;
+    color: var(--color-dark);
+}
+
+.skill-percent {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.skill-bar {
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    transition: width 1s ease-out;
+}
+
+.skills-section.is-visible .skill-progress {
+    width: var(--progress);
+}

@@ -1,0 +1,153 @@
+/* Portfolio Section Styling */
+
+.portfolio-section {
+    padding: 5rem 0 6rem;
+}
+
+.portfolio-section h2 {
+    margin: 0;
+    color: var(--color-dark);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+}
+
+.portfolio-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.5rem 0 2rem;
+}
+
+.filter-btn {
+    appearance: none;
+    border: 2px solid var(--color-primary);
+    background: transparent;
+    color: var(--color-primary);
+    padding: 0.6rem 1.25rem;
+    border-radius: 999px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--color-primary);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+    background: #0f172a;
+}
+
+.portfolio-link {
+    display: block;
+    position: relative;
+    color: #fff;
+}
+
+.portfolio-link img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.55) 42%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-overlay h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.2rem;
+}
+
+.portfolio-overlay p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.portfolio-item:hover .portfolio-link img,
+.portfolio-item:focus-within .portfolio-link img {
+    transform: scale(1.1);
+}
+
+.portfolio-item:hover .portfolio-overlay,
+.portfolio-item:focus-within .portfolio-overlay {
+    opacity: 1;
+}
+
+/* Lightbox */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: rgba(15, 23, 42, 0.96);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 2000;
+}
+
+.lightbox:target {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.lightbox img {
+    width: min(100%, 1100px);
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: 1.25rem;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 2rem;
+    line-height: 1;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
