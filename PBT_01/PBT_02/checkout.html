@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đặt hàng - ABC_Shop</title>
+</head>
+<body>
+    <h1>Xác nhận đơn hàng</h1>
+
+    <form action="#" method="POST">
+        <section>
+            <h2>1.Giỏ hàng</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th><th>Sản phẩm</th><th>Đơn giá</th><th>SL</th><th>Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>iPhone 16 Pro Max 256GB</td><td>34.990.000đ</td><td>1</td><td>34.990.000đ</td></tr>
+                    <tr><td>2</td><td>Ốp MagSafe</td><td>1.290.000đ</td><td>2</td><td>2.580.000đ</td></tr>
+                    <tr><td>3</td><td>AirPods Pro 2</td><td>5.990.00đ</td><td>1</td><td>5.990.000đ</td></tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">TỔNG CỘNG</td>
+                        <td><output name="total">43.560.000đ</output></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <label for="search">Tìm thêm sản phẩm (datalist):</label>
+            <input type="search" id="search" name="search" list="products"
+                    placeholder="Gõ tên sản phẩm...">
+            <datalist id="products">
+                <option value="iPhone 16 Pro"></option>
+                <option value="iPhone 16 Pro Max"></option>
+                <option value="MacBook Air M3"></option>
+                <option value="Apple Watch Series 10"></option>
+            </datalist>
+
+            <label for="loyalty">Điểm tích lũy (0-1000)</label>
+            <meter id="loyalty" min="0" max="1000" low="300" high="700" optinum="900" value="750">750/1000</meter>
+        </section>
+
+        <section>
+            <h2>2. Phương thức thanh toán</h2>
+            <fieldset>
+                <legend>Chọn phương thức</legend>
+                <label><input type="radio" name="payment" value="cod" required>COD (Tiền mặt)</label>
+                <label><input type="radio" name="payment" value="bank">Chuyển khoản</label>
+                <label><input type="radio" name="payment" value="ewallet">Ví điện tử (Momo/ZaloPay)</label>
+            </fieldset>
+
+            <label for="voucher">Mã giảm giá</label>
+            <input type="text" id="voucher" name="voucher"
+                    pattern="SALE[0-9]{4}" placeholder="VD: SALE2026"
+                    title="Định dạng: SALE + 4 chữ số">
+
+            <label for="note">Ghi chú đơn hàng (tùy chọn)</label>
+            <textare id="note" name="note" rows="3" placeholder="VD: Gọi trước khi giao 15 phút"></textare>
+        </section>
+
+        <section>
+            <h2>3. Thông tin giao hàng</h2>
+
+            <label for="name">Người nhận *</label>
+            <input type="text" id="name" name="name" required minlength="2" placeholder="Họ tên đầy đủ">
+
+            <label for="phone">Số điện thoại *</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="0987654321">
+
+            <label for="city">Tỉnh/Thành</label>
+            <select id="city" name="city" required>
+                <option value="">-- Chọn --</option>
+                <option>Hà Nội</option>
+                <option>TP. Hồ Chí Minh</option>
+                <option>Đà Nẵng</option>
+            </select>
+
+            <label for="address">Địa chỉ *</label>
+            <textarea id="address" name="address" rows="2" required placeholder="Số nhà, đường, phường,..."></textarea>
+
+            <label for="deliverydata">Ngày giao hàng mong muốn *</label>
+            <input type="date" id="deliverydate" name="deliverydate" required min="2026-04-25">
+
+            <label for="timeslot">Khung giờ giao *</label>
+            <select id="timeslot" name="timeslot" required>
+                <option value="">-- Chọn khung giờ</option>
+                <option value="morning">Sáng (8h - 12h)</option>
+                <option value="afternoon">Chiều (14h - 18h)</option>
+                <option value="evening">Tối (18h - 21h)</option>
+            </select>
+
+            <label for="days">Thời gian giao (số ngày, 1-7):
+                <output id="daysOut">3</output>
+            </label>
+            <input type="range" id="days" name="days" min="1" max="7" step="1" value="3"
+                    oninput="document.getElenmentById('daysOut').value = this.value">
+        </section>
+
+        <p>
+            <button type="submit" aria-label="Xác nhận đặt hàng">Xác nhận đặt hàng</button>
+        </p>
+    </form>
+</body>
+</html>
