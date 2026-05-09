@@ -1,0 +1,16 @@
+/* CSS Variables and Responsive Breakpoints */
+/* Desktop: 1024px+, Tablet: 768px-1023px, Mobile: <768px */
+/* All sections optimized for touch-friendly mobile-first design */
+
+:root {
+    --color-primary: #6366f1;
+    --color-secondary: #8b5cf6;
+    --color-dark: #1e293b;
+    --color-light: #f8fafc;
+    --color-text: #334155;
+    --color-text-muted: #64748b;
+    --color-border: rgba(99, 102, 241, 0.16);
+    --font-main: 'Segoe UI', sans-serif;
+    --header-height: 4.75rem;
+    --shadow-soft: 0 16px 40px rgba(30, 41, 59, 0.14);
+}

@@ -1,0 +1,51 @@
+/* About Section Styling */
+
+.about-section {
+    padding: 5rem 0;
+    background: rgba(255, 255, 255, 0.46);
+    border-top: 1px solid rgba(148, 163, 184, 0.14);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-image {
+    width: min(300px, 100%);
+    justify-self: center;
+}
+
+.about-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: var(--shadow-soft);
+    border: 8px solid rgba(255, 255, 255, 0.7);
+}
+
+.about-content h2 {
+    margin: 0 0 1rem;
+    color: var(--color-dark);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+}
+
+.lead {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    font-weight: 300;
+    color: var(--color-dark);
+}
+
+.about-content p:last-child {
+    margin: 0;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+}
