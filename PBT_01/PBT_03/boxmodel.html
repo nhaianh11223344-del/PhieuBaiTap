@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2 - Box Model Lab</title>
+    <link rel="stylesheet" href="boxmodel2.css">
+</head>
+<body>
+    <header class="page-header">
+        <h1>Bài B2 - Box Model Lab</h1>
+        <p>Chứng minh <code>content-box</code> vs <code>border-box</code> + layout 3 cột</p>
+    </header>
+
+    <section class="lab-section">
+        <h2>Phần 1 - content-box vs border-box</h2>
+        <p class="hint">
+            Cả 2 hộp đều có <code>width: 300px; padding: 20px; border: 5px solid</code>
+            Hãy mở DevTools -> tab <em>Computed</em> -> quan sát Box Model diagram để so sánh.
+        </p>
+
+        <div class="box-row">
+            <div class="box box-content">
+                <strong>Hộp 1 - content-box</strong>
+                <small>width: 300px (chỉ content)</small>
+                <small>-> Tổng = 300 + 40 + 1 = <b>350px</b></small>
+            </div>
+
+            <div class="box box-border">
+                <strong>Hộp 2 - border-box</strong>
+                <small>width: 300px (đã gồm padding + border)</small>
+                <small>-> Tổng = <b>300px</b>, content thật = 250px</small>
+            </div>
+        </div>
+
+        <div class="ruler-300">-> Đường kẻ 300px chuẩn -></div>
+        <div class="ruler-350">-> Đường kẻ 350px chuẩn -></div>
+    </section>
+
+    <section class="lab-section">
+        <h2>Phần 1B - Margin Collapse (bonus)</h2>
+        <p class="hint">
+            <code>.box-a</code> có <code>margin-bottom: 25px</code>,
+            <code>.box-b</code> có <code>margin-top: 40px</code>.
+            Khoảng cách giữa 2 hộp = <b>40px</b> (không phải 65px).
+        </p>
+        <div class="mc-wrap">
+            <div class="mc box-a">box-a · margin-bottom: 25px</div>
+            <div class="mc box-b">box-b · margin-top: 40px</div>
+        </div>
+        <p class="hint">
+            Mở DevTools, đo khoảng cách giữa 2 div bằng "Inspect" - bạn sẽ thấy đúng
+            <b>40px</b> (giá trị max), không phải 65px (cộng dồn).
+        </p>
+    </section>
+
+    <section class="lab-section">
+        <h2>Phần 2 - Layout 3 cột trong container 1000px</h2>
+        <h3> Trường hợp ĐÚNG - có <code>border-box</code></h3>
+        <p class="hint">
+            Tổng 3 cột = 250 + 500 + 250 = <b>1000px</b> (vừa khít container).
+        </p>
+        <div class="layout-3col good">
+            <aside class="col-left">
+                <h4>Content (250px)</h4>
+                <p>padding: 15px<br>background nhạt</p>
+            </aside>
+            <main class="col-center">
+                <h4>Content (500px)</h4>
+                <p>padding: 20px<br>nội dung chính của trang</p>
+            </main>
+            <aside class="col-right">
+                <h4>Ads (250px)</h4>
+                <p>padding: 15px<br>background nhạt</p>
+            </aside>
+        </div>
+
+        <h3> Trường hợp SAI - KHÔNG có <code>border-box</code></h3>
+        <p class="hint">
+            Cùng width 250 + 500 + 250 = 1000px, nhưng vì padding cộng thêm vào ->
+            tổng thực tế = (250+30) + (500+40) + (250+30) = <b>1100px</b> > 1000px.
+            Cột Ads bị đẩy xuống dòng mới (float drop).
+        </p>
+        <div class="layout-3col bad">
+            <aside class="col-left">
+                <h4>Sidebar (250px)</h4>
+                <p>padding: 15px -> tổng 280px</p>
+            </aside>
+            <main class="col-center">
+                <h4>Content (500px)</h4>
+                <p>padding: 20px -> tổng 540px</p>
+            </main>
+            <aside class="col-right">
+                <h4>Ads (bị wrap xuống dòng!)</h4>
+                <p>1100px &gt; 1000px -> drop</p>
+            </aside>
+        </div>
+    </section>
+
+    <footer class="page-footer">
+        <p> Cần chụp DevTools Box Model diagram cho cả 2 hộp ở Phần 1 -> lưu vào <code>screenshots</code></p>
+    </footer>
+
+    <script>
+        window.addEventListener('load', () => {
+            const b1 = document.querySelector('.box-content');
+            const b2 = document.querySelector('.box-border');
+            console.log('=== BOX MODEL - Kích thước thực tế (offsetWidth) ===');
+            console.log(`Hộp 1 (content-box): ${b1.offsetWidth}px <- mong đợi 350px`);
+            console.log(`Hộp 2 (border-box): ${b2.offsetWidth}px <- mong đợi 300px`);
+        });
+    </script>
+</body>
+</html>

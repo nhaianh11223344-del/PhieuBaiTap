@@ -1,0 +1,169 @@
+/* =========================================================
+   BÀI B2 — boxmodel.css
+   Chứng minh content-box vs border-box + layout 3 cột
+   ========================================================= */
+
+/* ---------- BASE ---------- */
+body {
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    background: #fafafa;
+    color: #263238;
+    line-height: 1.5;
+}
+
+.page-header {
+    background: linear-gradient(135deg, #1565c0, #42a5f5);
+    color: #fff;
+    padding: 24px 32px;
+}
+.page-header h1 { margin: 0 0 4px; font-size: 1.6em; }
+.page-header code { background: rgba(255,255,255,.2); padding: 2px 6px; border-radius: 3px; }
+
+.lab-section {
+    max-width: 1100px;
+    margin: 24px auto;
+    padding: 24px 32px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    overflow-x: auto;   /* nếu màn hẹp: cho cuộn ngang, không ép layout drop */
+}
+
+.lab-section h2 {
+    color: #1565c0;
+    border-bottom: 2px solid #e3f2fd;
+    padding-bottom: 6px;
+    margin: 0 0 12px;
+}
+.lab-section h3 { margin-top: 24px; color: #2e7d32; }
+.lab-section h3:nth-of-type(2) { color: #c62828; }
+
+.hint {
+    background: #fff8e1;
+    border-left: 4px solid #fbc02d;
+    padding: 10px 14px;
+    margin: 8px 0 16px;
+    font-size: 0.95em;
+}
+.hint code { background: #fff; padding: 2px 6px; border-radius: 3px; }
+
+/* =====================================================
+   PHẦN 1 — content-box vs border-box
+   ===================================================== */
+.box-row {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    margin: 24px 0;
+    flex-wrap: wrap;
+}
+
+.box {
+    /* Common cho cả 2 hộp */
+    width: 300px;
+    padding: 20px;
+    border: 5px solid;
+    background: #e3f2fd;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.box strong { font-size: 1.1em; }
+.box small { font-size: 0.85em; color: #455a64; }
+
+/* Hộp 1 — content-box (mặc định, nhưng viết rõ cho minh họa) */
+.box-content {
+    box-sizing: content-box;
+    border-color: #c62828;          /* đỏ */
+    background: #ffebee;
+}
+
+/* Hộp 2 — border-box */
+.box-border {
+    box-sizing: border-box;
+    border-color: #2e7d32;          /* xanh lá */
+    background: #e8f5e9;
+}
+
+/* Thước đo trực quan để so sánh */
+.ruler-300, .ruler-350 {
+    height: 24px;
+    margin: 8px 0;
+    color: #fff;
+    text-align: center;
+    font-size: 0.85em;
+    line-height: 24px;
+    font-weight: 700;
+}
+.ruler-300 {
+    width: 300px;
+    background: #2e7d32;            /* khớp với border-box */
+}
+.ruler-350 {
+    width: 350px;
+    background: #c62828;            /* khớp với content-box */
+}
+
+/* ---------- Margin collapse demo ---------- */
+.mc-wrap {
+    background: #eceff1;
+    padding: 1px 16px;              /* dùng padding 1px để tránh collapse vào parent */
+    border-radius: 4px;
+}
+.mc {
+    background: #1976d2;
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 4px;
+}
+.box-a { margin-bottom: 25px; }
+.box-b { margin-top: 40px; background: #c62828; }
+
+/* =====================================================
+   PHẦN 2 — Layout 3 cột
+   ===================================================== */
+.layout-3col {
+    width: 1004px;          /* 1000 nội dung + 4px border (2px x 2 cạnh) */
+    margin: 16px 0 32px;
+    border: 2px dashed #1565c0;
+    overflow: auto;         /* clearfix cho float */
+    background: #f5f5f5;
+}
+.layout-3col h4 { margin: 0 0 8px; font-size: 1em; }
+.layout-3col p { margin: 0; font-size: 0.9em; }
+
+.layout-3col aside,
+.layout-3col main {
+    float: left;
+    min-height: 120px;
+}
+
+/* === Trường hợp ĐÚNG — border-box ===
+   .layout-3col đã được cấp 1004px = 1000 content + 4 border (content-box mặc định)
+   → nội dung bên trong = đúng 1000px, fit 3 cột border-box 250+500+250 */
+.layout-3col.good * { box-sizing: border-box; }
+.layout-3col.good .col-left  { width: 250px; padding: 15px; background: #e8f5e9; }
+.layout-3col.good .col-center{ width: 500px; padding: 20px; background: #fffde7; }
+.layout-3col.good .col-right { width: 250px; padding: 15px; background: #e8f5e9; }
+
+/* === Trường hợp SAI — content-box (mặc định) === */
+.layout-3col.bad * { box-sizing: content-box; }
+.layout-3col.bad .col-left  { width: 250px; padding: 15px; background: #ffebee; }
+.layout-3col.bad .col-center{ width: 500px; padding: 20px; background: #fff3e0; }
+.layout-3col.bad .col-right { width: 250px; padding: 15px; background: #ffebee; }
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+.page-footer {
+    text-align: center;
+    padding: 16px;
+    color: #607d8b;
+    font-size: 0.9em;
+}
+.page-footer code {
+    background: #eceff1;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
