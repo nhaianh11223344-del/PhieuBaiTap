@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+  font-size: 14px;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.site-header .brand {
+  font-weight: 700;
+}
+
+.site-header .menu-toggle {
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.site-header .site-nav {
+  display: none;
+  gap: 16px;
+}
+
+.site-header .site-nav a {
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+
+.sidebar {
+  display: none;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.sidebar .filters {
+  display: grid;
+  gap: 8px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  display: grid;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+.card .card-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.card .badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #f97316;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.btn {
+  border: none;
+  background: #1e3a8a;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  .site-header .menu-toggle {
+    display: none;
+  }
+
+  .site-header .site-nav {
+    display: flex;
+  }
+
+  .sidebar {
+    display: block;
+  }
+
+  .sidebar .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+
+  .page {
+    grid-template-columns: 220px 1fr 180px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $font-primary;
+  background: $bg-color;
+  color: $text-color;
+  font-size: 14px;
+}
+
+.site-header {
+  @include flex-center;
+  justify-content: space-between;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: $card-color;
+  border-bottom: 1px solid #e2e8f0;
+
+  .brand {
+    font-weight: 700;
+  }
+
+  .menu-toggle {
+    border: 1px solid #e2e8f0;
+    background: $card-color;
+    padding: 6px 10px;
+    border-radius: 6px;
+  }
+
+  .site-nav {
+    display: none;
+    gap: $spacing-md;
+
+    a {
+      text-decoration: none;
+      color: $text-color;
+      font-weight: 600;
+    }
+  }
+}
+
+.page {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  padding: $spacing-md;
+}
+
+.sidebar {
+  display: none;
+  background: $card-color;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: $spacing-md;
+
+  .filters {
+    display: grid;
+    gap: $spacing-sm;
+  }
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+}
+
+.card {
+  background: $card-color;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: $spacing-md;
+  display: grid;
+  gap: $spacing-sm;
+  @include card-shadow;
+
+  .card-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: $secondary-color;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 999px;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.btn {
+  border: none;
+  background: $primary-color;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@include respond-to($breakpoint-tablet) {
+  body {
+    font-size: 15px;
+  }
+
+  .site-header {
+    .menu-toggle {
+      display: none;
+    }
+
+    .site-nav {
+      display: flex;
+    }
+  }
+
+  .sidebar {
+    display: block;
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-md;
+    }
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  body {
+    font-size: 16px;
+  }
+
+  .page {
+    grid-template-columns: 220px 1fr 180px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
