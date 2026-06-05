@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tailwind Landing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+  <header class="border-b border-slate-200 dark:border-slate-700">
+    <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="h-9 w-9 rounded-lg bg-indigo-600 text-white flex items-center justify-center">T</div>
+        <span class="font-semibold">TailShop</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="hover:text-indigo-600 dark:hover:text-indigo-400" href="#products">San pham</a>
+        <a class="hover:text-indigo-600 dark:hover:text-indigo-400" href="#features">Uu dai</a>
+        <a class="hover:text-indigo-600 dark:hover:text-indigo-400" href="#footer">Lien he</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <button class="hidden md:inline-flex px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700">Dang nhap</button>
+        <button class="md:hidden inline-flex items-center gap-2 px-3 py-2 rounded-md border border-slate-300 dark:border-slate-600">
+          <span class="text-lg">&#9776;</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-gradient-to-r from-indigo-600 to-sky-600 text-white">
+    <div class="mx-auto max-w-6xl px-4 py-16 text-center">
+      <h1 class="text-3xl md:text-5xl font-bold">Mua sam thong minh, giao nhanh 2h</h1>
+      <p class="mt-4 text-base md:text-lg text-indigo-100">San pham cong nghe chinh hang, uu dai moi tuan.</p>
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a class="px-6 py-3 rounded-md bg-white text-indigo-700 font-semibold hover:bg-indigo-50" href="#products">Kham pha ngay</a>
+        <a class="px-6 py-3 rounded-md border border-white/60 hover:bg-white/10" href="#features">Xem uu dai</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="rounded-lg border border-slate-200 dark:border-slate-700 p-5 shadow-sm dark:shadow-none">
+        <h3 class="font-semibold">Bao hanh 12 thang</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">Ho tro doi moi trong 30 ngay.</p>
+      </div>
+      <div class="rounded-lg border border-slate-200 dark:border-slate-700 p-5 shadow-sm dark:shadow-none">
+        <h3 class="font-semibold">Thanh toan linh hoat</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">Tra gop 0% voi the noi dia.</p>
+      </div>
+      <div class="rounded-lg border border-slate-200 dark:border-slate-700 p-5 shadow-sm dark:shadow-none">
+        <h3 class="font-semibold">Ho tro 24/7</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">Tu van nhanh qua chat va hotline.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="flex items-end justify-between mb-6">
+      <h2 class="text-2xl font-bold">San pham noi bat</h2>
+      <span class="text-sm text-slate-500 dark:text-slate-400">Cap nhat moi nhat</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <article class="rounded-lg border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+        <img class="w-full h-40 object-cover" src="https://placehold.co/400x300/1e40af/fff?text=Phone" alt="Phone">
+        <div class="p-4">
+          <h3 class="font-semibold">Smartphone Pro</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">Man hinh 120Hz</p>
+          <div class="mt-3 flex items-center justify-between">
+            <span class="font-bold text-indigo-600 dark:text-indigo-400">14.990.000d</span>
+            <button class="px-3 py-2 text-sm rounded-md bg-indigo-600 text-white hover:bg-indigo-700">Mua ngay</button>
+          </div>
+        </div>
+      </article>
+      <article class="rounded-lg border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+        <img class="w-full h-40 object-cover" src="https://placehold.co/400x300/0f766e/fff?text=Laptop" alt="Laptop">
+        <div class="p-4">
+          <h3 class="font-semibold">Laptop Air</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">Pin 18 gio</p>
+          <div class="mt-3 flex items-center justify-between">
+            <span class="font-bold text-indigo-600 dark:text-indigo-400">23.990.000d</span>
+            <button class="px-3 py-2 text-sm rounded-md bg-indigo-600 text-white hover:bg-indigo-700">Mua ngay</button>
+          </div>
+        </div>
+      </article>
+      <article class="rounded-lg border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+        <img class="w-full h-40 object-cover" src="https://placehold.co/400x300/ea580c/fff?text=Headphone" alt="Headphone">
+        <div class="p-4">
+          <h3 class="font-semibold">Tai nghe ANC</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">Chong on chu dong</p>
+          <div class="mt-3 flex items-center justify-between">
+            <span class="font-bold text-indigo-600 dark:text-indigo-400">2.490.000d</span>
+            <button class="px-3 py-2 text-sm rounded-md bg-indigo-600 text-white hover:bg-indigo-700">Mua ngay</button>
+          </div>
+        </div>
+      </article>
+      <article class="rounded-lg border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+        <img class="w-full h-40 object-cover" src="https://placehold.co/400x300/6b21a8/fff?text=Watch" alt="Watch">
+        <div class="p-4">
+          <h3 class="font-semibold">Dong ho thong minh</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">GPS + The thao</p>
+          <div class="mt-3 flex items-center justify-between">
+            <span class="font-bold text-indigo-600 dark:text-indigo-400">3.990.000d</span>
+            <button class="px-3 py-2 text-sm rounded-md bg-indigo-600 text-white hover:bg-indigo-700">Mua ngay</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer id="footer" class="border-t border-slate-200 dark:border-slate-700">
+    <div class="mx-auto max-w-6xl px-4 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div>
+        <h4 class="font-semibold">TailShop</h4>
+        <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">Cua hang cong nghe chinh hang.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">San pham</h4>
+        <ul class="text-sm text-slate-600 dark:text-slate-300 mt-2 space-y-1">
+          <li>Dien thoai</li>
+          <li>Laptop</li>
+          <li>Phu kien</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold">Ho tro</h4>
+        <ul class="text-sm text-slate-600 dark:text-slate-300 mt-2 space-y-1">
+          <li>Chinh sach doi tra</li>
+          <li>Huong dan thanh toan</li>
+          <li>Cham soc khach hang</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold">Lien he</h4>
+        <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">Hotline: 1900 0000</p>
+        <p class="text-sm text-slate-600 dark:text-slate-300">Email: hello@tailshop.vn</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
